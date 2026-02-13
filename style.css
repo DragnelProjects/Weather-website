@@ -6,24 +6,30 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+html{
+    font-size: 12px ;
+}
 html,body{
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, skyblue,blue);
+    background: linear-gradient(to bottom, skyblue,rgb(4, 4, 121));
 }
 .back-box{
     position: absolute;
-    top: 0;
+    top: 0px;
     height: 55vh;
     width: 100%;
+    overflow: hidden;
 }
 .back-box img{
     height: 100%;
     width: 100%;
-   opacity: 0.8; 
+    object-position: center;
+    object-fit: cover; 
+    filter: brightness(0.6);
 }
 .navbar-conatiner{
     height: 40px;
@@ -106,7 +112,7 @@ html,body{
     line-height: 24px;
 }
 .search-container{
-    height: 50px;
+    height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -137,13 +143,172 @@ html,body{
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
+    padding-top: 20px;
     border: 1px solid red;
 }
 .content-box{
     position: relative;
     height: 90%;
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid;
+}
+.image-box{
+    position: absolute;
+    top: -40px;
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+}
+.image-box img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+    object-position: top;
+    filter: brightness(1);
+}
+.info-box{
+    position: relative;
+    height: 45%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid blue;
+}
+.temp-info{
+    /* border: 1px solid; */
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 34px;
+    background-color: rgba(4, 4, 104, 0.069);
+}
+#tempText{
+    font-size: 38px;
+    color: white;
+    margin-bottom: 0px;
+    /* font-weight: 500; */
+}
+#cloudInfo{
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.165);
+    margin-top: -10px;
+}
+#dateInfo{
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+.condition-box{
+    /* border: 1px solid; */
+    height: 80%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    background-color: rgba(0, 0, 0, 0.193);
+}
+.condition-box div{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px 0 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.285);
+}
+.condition-box div:last-child{
+    border: none;
+}
+.condition-box div p{
+    font-size: 12px;
+    color: whitesmoke;
+}
+.weather-info{
+    position: relative;
+    height: 55%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background: rgb(255, 255, 255); */
+}
+.upper-section{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.forcast-container{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid yellow;
+}
+.forcast-box{
+    height: 80%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom left, rgba(89, 89, 255, 0.489) , rgba(188, 222, 253, 0.429) , rgba(6, 6, 112, 0.507));
+    border: 1px solid blueviolet;
+}
+.weather-image{
+    height: 40%;
+    width: 100%;
+}
+.text-box{
+    height: 60%;
+    width: 100%;
+    display: flex;
+     
+}
+.text-box > p{
+    height: 100%;
+    width: 20%;
+}
+.day-and-weather{
+    height: 100%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid;
+}
+.lower-section{
+    /* border: 1px solid white; */
+    height: 35%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* z-index: 6; */
+}
+.details-container{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+}
+.details-box{
+    height: 80%;
+    width: 20%;
     border: 1px solid;
 }

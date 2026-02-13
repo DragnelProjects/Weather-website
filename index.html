@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-     <link
+    <link rel="stylesheet" href="style.css" />
+    <link
       href="https://cdn.boxicons.com/3.0.7/fonts/basic/boxicons.min.css"
       rel="stylesheet"
     />
@@ -13,32 +13,162 @@
       href="https://cdn.boxicons.com/3.0.7/fonts/brands/boxicons-brands.min.css"
       rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="back-box">
-        <img src="mauricio-munoz-0iwWAJeVpzU-unsplash.jpg" alt="Weather">
+      <div>
+        <img src="j-dddd-8oZXiq_09mY-unsplash.jpg" alt="Weather" />
+      </div>
     </div>
+    <!-- ! CODES navbar is here  -->
     <nav class="navbar-conatiner">
-        <div class="title-box">
-            <div class="logo-box"><img src="cloud.png" alt="cloud"></div>
-            <p class="title">Weather App</p>
-        </div>
-        
-        <div class="tabs-box">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#"><i class="bx bx-search"></i></a>
-        </div>
+      <div class="title-box">
+        <div class="logo-box"><img src="cloud.png" alt="cloud" /></div>
+        <p class="title">Weather App</p>
+      </div>
+
+      <div class="tabs-box">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#"><i class="bx bx-search"></i></a>
+      </div>
     </nav>
+
+    <!-- ! CODES for search box is here -->
     <div class="search-container">
-        <input type="text" id="cityInput" placeholder="Enter the city name..">
-        <button id="searchBtn">Search</button>
-    </div>
-    <div class="sub-container">
-        <div class="content-box">5</div>
+      <input type="text" id="cityInput" placeholder="Enter the city name.." />
+      <button id="searchBtn">Search</button>
     </div>
 
+    <!-- ! CODES for subcontainer  -->
+    <div class="sub-container">
+      <div class="content-box">
+        <div class="image-box">
+          <div>
+            <img src="j-dddd-8oZXiq_09mY-unsplash.jpg" alt="weather2" />
+          </div>
+        </div>
+        <!-- TODO Information box container is here  -->
+        <div class="info-box">
+          <div class="temp-info">
+            <p id="tempText">22</p>
+            <p id="cloudInfo">cloud</p>
+            <p id="dateInfo"></p>
+          </div>
+          <div class="condition-box">
+            <div>
+              <p>Temperature</p>
+              <p id="upperTemp">55</p>
+            </div>
+
+            <div>
+              <p>Humidity</p>
+              <p id="upperHumid">42</p>
+            </div>
+
+            <div>
+              <p>Wind</p>
+              <p id="uppperWind">12</p>
+            </div>
+
+            <div>
+              <p>Feels like</p>
+              <p id="showFeels">wind</p>
+            </div>
+          </div>
+        </div>
+        <!-- TODO: Weather info codes are here -->
+        <div class="weather-info">
+          <!-- ? CODES FOR UPPPER SECTION OF WEATHER INFO  -->
+          <div class="upper-section">
+            <div class="forcast-container">
+              <!-- !FORCASTBOX ONE  -->
+              <div class="forcast-box">
+                <div class="weather-image">cloud</div>
+                <div class="text-box">
+                  <p id="dayOneTemp">22</p>
+                  <div class="day-and-weather">
+                    <p id="dayOnefeel">22</p>
+                    <p id="weatherCondition">Mostly Sunny</p>
+                  </div>
+                </div>
+              </div>
+              <!-- !FORCASTBOX 2  -->
+              <div class="forcast-box">
+                <div class="weather-image">cloud</div>
+                <div class="text-box">
+                  <p id="dayTwoTemp">22</p>
+                  <div class="day-and-weather">
+                    <p id="dayTwofeel">22</p>
+                    <p id="weatherCondition2">Mostly Sunny</p>
+                  </div>
+                </div>
+              </div>
+              <!-- !FORCASTBOX 3  -->
+              <div class="forcast-box">
+                <div class="weather-image">cloud</div>
+                <div class="text-box">
+                  <p id="dayThreeTemp">22</p>
+                  <div class="day-and-weather">
+                    <p id="dayThreefeel">22</p>
+                    <p id="weatherCondition2">Mostly Sunny</p>
+                  </div>
+                </div>
+              </div>
+              <!-- !FORCASTBOX 4  -->
+              <div class="forcast-box">
+                <div class="weather-image">cloud</div>
+                <div class="text-box">
+                  <p id="dayFourTemp">22</p>
+                  <div class="day-and-weather">
+                    <p id="dayFourfeel">22</p>
+                    <p id="weatherCondition3">Mostly Sunny</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ? CODES FOR LOWER SECTION  -->
+          <div class="lower-section">
+            <div class="details-container">
+              <!-- ! DETAISL BOX NO.1  -->
+              <div class="details-box">
+                <div class="cond-logo"></div>
+                <div class="sub-text">
+                  <p>Humidity</p>
+                  <p id="showNum">22</p>
+                </div>
+              </div>
+              <!-- ! DETAISL BOX NO.2  -->
+              <div class="details-box">
+                <div class="cond-logo"></div>
+                <div class="sub-text">
+                  <p>Wind Speed</p>
+                  <p id="showWindNum">22</p>
+                </div>
+              </div>
+              <!-- ! DETAISL BOX NO.3  -->
+              <div class="details-box">
+                <div class="cond-logo"></div>
+                <div class="sub-text">
+                  <p>Sunrise</p>
+                  <p id="sunriseTime">22</p>
+                </div>
+              </div>
+              <!-- ! DETAISL BOX NO.4  -->
+              <div class="details-box">
+                <div class="cond-logo"></div>
+                <div class="sub-text">
+                  <p>Sunset</p>
+                  <p id="sunsetTime">22</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
