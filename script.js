@@ -90,7 +90,7 @@ searchBtn.addEventListener("click", () => {
 async function toGetData(city) {
   try {
     const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bd2747019ac3dfcba6167101fd8bc51b`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`,
     );
 
     if (!data.ok) {
@@ -176,7 +176,7 @@ toDisplayTheData("Delhi");
 async function loadForecast(city = "Delhi") {
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=bd2747019ac3dfcba6167101fd8bc51b`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
     );
 
     if (!res.ok) throw new Error("City not found");
