@@ -15,22 +15,28 @@ html,body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, skyblue,rgb(4, 4, 121));
+   
 }
-.back-box{
+body::before{
     position: absolute;
-    top: 0px;
-    height: 55vh;
-    width: 100%;
-    overflow: hidden;
-}
-.back-box img{
+    content: "";
     height: 100%;
     width: 100%;
-    object-position: center;
-    object-fit: cover; 
-    filter: brightness(0.6);
+    background: url(new-back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.9);
 }
+/* .back-image{
+    position: absolute;
+    height: 99%;
+    width: 99%;
+}
+.back-image img{
+    height: 100%;
+    width: 100%;
+} */
 .navbar-conatiner{
     height: 40px;
     width: 100%;
@@ -41,16 +47,6 @@ html,body{
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.386);
     z-index: 22;
 }
-/* .navbar-conatiner::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 40px;
-    width: 100%;
-    background-color: rgba(3, 20, 255, 0.2);
-    pointer-events: none;
-} */
 .title-box{
     height: 100%;
     width: 20%;
@@ -138,6 +134,10 @@ html,body{
     color: rgb(232, 224, 224);
     background: linear-gradient(to top left, rgb(2, 2, 68),rgb(79, 113, 239));
     padding: 2px 10px;
+    transition: all 0.3s ease;
+}
+#searchBtn:active{
+    transform: scale(0.9);
 }
 .sub-container{
     height: 100%;
@@ -148,38 +148,25 @@ html,body{
     padding-top: 20px;
     border: 1px solid red;
 }
-.content-box{
-    position: relative;
+.content-box{ 
     height: 90%;
     width: 74%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
-    border: 1px solid;
-}
-.image-box{
-    position: absolute;
-    top: -40px;
-    height: 60%;
-    width: 100%;
-    overflow: hidden;
-}
-.image-box img{
-    height: 100%;
-    width: 100%;
-    object-fit:cover;
-    object-position: top;
-    filter: brightness(1);
+    /* border: 1px solid; */
+    z-index: 12;
 }
 .info-box{
-    position: relative;
     height: 45%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid blue;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    /* border: 1px solid blue; */
 }
 .temp-info{
     /* border: 1px solid; */
@@ -234,7 +221,6 @@ html,body{
     color: whitesmoke;
 }
 .weather-info{
-    position: relative;
     height: 55%;
     width: 100%;
     display: flex;
@@ -245,49 +231,48 @@ html,body{
     height: 65%;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     /* border: 1px solid red; */
 }
-.forcast-container{
+.forecast{
     height: 80%;
     width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     border: 1px solid yellow;
 }
-.forcast-box{
-    height: 80%;
+.card{
+    border: 1px solid red;
+    height: 90%;
     width: 20%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom left, rgba(89, 89, 255, 0.489) , rgba(188, 222, 253, 0.429) , rgba(6, 6, 112, 0.507));
-    border: 1px solid blueviolet;
+    align-items: center;
 }
-.weather-image{
-    height: 40%;
-    width: 100%;
-}
-.text-box{
-    height: 60%;
+.icon-box{
+    height: 50%;
     width: 100%;
     display: flex;
-     
-}
-.text-box > p{
-    height: 100%;
-    width: 20%;
-}
-.day-and-weather{
-    height: 100%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: space-around;
     border: 1px solid;
+}
+.icon-box h3{
+    font-size: 12px;
+}
+.icon-box img{
+    height: 80px;
+    width: 80px;
+}
+.temp-dets{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .lower-section{
     /* border: 1px solid white; */

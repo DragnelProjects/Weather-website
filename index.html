@@ -15,11 +15,9 @@
     />
   </head>
   <body>
-    <div class="back-box">
-      <div>
-        <img src="j-dddd-8oZXiq_09mY-unsplash.jpg" alt="Weather" />
-      </div>
-    </div>
+    <!-- <div class="back-image">
+      <img src="new-back.png" alt="new">
+    </div> -->
     <!-- ! CODES navbar is here  -->
     <nav class="navbar-conatiner">
       <div class="title-box">
@@ -44,16 +42,12 @@
     <!-- ! CODES for subcontainer  -->
     <div class="sub-container">
       <div class="content-box">
-        <div class="image-box">
-          <div>
-            <img src="j-dddd-8oZXiq_09mY-unsplash.jpg" alt="weather2" />
-          </div>
-        </div>
         <!-- TODO Information box container is here  -->
         <div class="info-box">
           <div class="temp-info">
-            <p id="tempText">22</p>
-            <p id="cloudInfo">cloud</p>
+            <p id="cityName"></p>
+            <p id="tempText"></p>
+            <p id="cloudInfo"></p>
             <p id="dateInfo"></p>
           </div>
           <div class="condition-box">
@@ -69,7 +63,7 @@
 
             <div>
               <p>Wind</p>
-              <p id="uppperWind">12</p>
+              <p id="upperWind">12</p>
             </div>
 
             <div>
@@ -82,52 +76,51 @@
         <div class="weather-info">
           <!-- ? CODES FOR UPPPER SECTION OF WEATHER INFO  -->
           <div class="upper-section">
-            <div class="forcast-container">
-              <!-- !FORCASTBOX ONE  -->
-              <div class="forcast-box">
-                <div class="weather-image">cloud</div>
-                <div class="text-box">
-                  <p id="dayOneTemp">22</p>
-                  <div class="day-and-weather">
-                    <p id="dayOnefeel">22</p>
-                    <p id="weatherCondition">Mostly Sunny</p>
+                   <div class="forecast">
+                <div class="card">
+                  <div class="icon-box">
+                    <h3 class="day"></h3>
+                    <img class="icon" />
+                  </div>
+                  <div class="temp-dets">
+                    <p class="temp"></p>
+                    <p class="desc"></p>
+                  </div>
+                </div>
+
+                <div class="card">
+                   <div class="icon-box">
+                    <h3 class="day"></h3>
+                    <img class="icon" />
+                  </div>
+                  <div class="temp-dets">
+                    <p class="temp"></p>
+                    <p class="desc"></p>
+                  </div>
+                </div>
+
+                <div class="card">
+                   <div class="icon-box">
+                    <h3 class="day"></h3>
+                    <img class="icon" />
+                  </div>
+                  <div class="temp-dets">
+                    <p class="temp"></p>
+                    <p class="desc"></p>
+                  </div>
+                </div>
+
+                <div class="card">
+                   <div class="icon-box">
+                    <h3 class="day"></h3>
+                    <img class="icon" />
+                  </div>
+                  <div class="temp-dets">
+                    <p class="temp"></p>
+                    <p class="desc"></p>
                   </div>
                 </div>
               </div>
-              <!-- !FORCASTBOX 2  -->
-              <div class="forcast-box">
-                <div class="weather-image">cloud</div>
-                <div class="text-box">
-                  <p id="dayTwoTemp">22</p>
-                  <div class="day-and-weather">
-                    <p id="dayTwofeel">22</p>
-                    <p id="weatherCondition2">Mostly Sunny</p>
-                  </div>
-                </div>
-              </div>
-              <!-- !FORCASTBOX 3  -->
-              <div class="forcast-box">
-                <div class="weather-image">cloud</div>
-                <div class="text-box">
-                  <p id="dayThreeTemp">22</p>
-                  <div class="day-and-weather">
-                    <p id="dayThreefeel">22</p>
-                    <p id="weatherCondition2">Mostly Sunny</p>
-                  </div>
-                </div>
-              </div>
-              <!-- !FORCASTBOX 4  -->
-              <div class="forcast-box">
-                <div class="weather-image">cloud</div>
-                <div class="text-box">
-                  <p id="dayFourTemp">22</p>
-                  <div class="day-and-weather">
-                    <p id="dayFourfeel">22</p>
-                    <p id="weatherCondition3">Mostly Sunny</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <!-- ? CODES FOR LOWER SECTION  -->
           <div class="lower-section">
