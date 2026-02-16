@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+:root{
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.18);
+}
 html{
     font-size: 12px ;
 }
@@ -15,36 +19,28 @@ html,body{
     width: 100%;
     display: flex;
     flex-direction: column;
-   
+    color: #eaf4ff;
 }
 body::before{
     position: absolute;
     content: "";
     height: 100%;
     width: 100%;
-    background: url(new-back.png);
+    background: url(wallpaper6.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    filter: brightness(0.9);
+    /* filter: brightness(0.8); */
 }
-/* .back-image{
-    position: absolute;
-    height: 99%;
-    width: 99%;
-}
-.back-image img{
-    height: 100%;
-    width: 100%;
-} */
 .navbar-conatiner{
     height: 40px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(to right, rgba(61, 61, 255, 0.164), rgba(255, 186, 25, 0.289));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.386);
+    backdrop-filter: blur(14px);
     z-index: 22;
 }
 .title-box{
@@ -54,7 +50,6 @@ body::before{
     align-items: center;
     justify-content: center;
     margin-left: 40px;
-    /* border: 1px solid yellow; */
     z-index: 8;
 }
 .logo-box{
@@ -81,7 +76,6 @@ body::before{
     width: 100%;
 }
 .title-box p{
-    color: white;
     font-weight: 500;
     margin-left: 6px;
 }
@@ -96,113 +90,150 @@ body::before{
 }
 .tabs-box a{
     text-decoration: none;
-    color: rgb(235, 227, 227);
     font-size: 12px;
     font-weight: 400;
+    color: white;
 }
 .tabs-box i{
-    /* text-decoration: none; */
-    color: rgb(235, 227, 227);
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
 }
+/* CODES FOR SEARCH BOX START HERE  */
 .search-container{
-    height: 80px;
+    position: relative;
+    height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 12;
-    border-bottom: 1px solid;
+}
+.search-container::before{
+    position: absolute;
+    content: "";
+    /* background-color: white; */
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    border-bottom: 1px solid white;
+    border-radius: 60%;
 }
 #cityInput{
-    height: 25px;
+    height: 60%;
     width: 30%;
     border-style: none;
-    border-radius: 2px 0 0 2px;
+    border-radius: 4px 0 0 4px;
     outline: none;
     padding-left: 8px;
     font-size: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+}
+input[type="text"]::placeholder{
+    color: #eaf4ff;
 }
 #searchBtn{
     border-style: none;
-    border-radius: 0 2px 2px 0;
-    height: 25px;
-    font-size: 12px;
+    border-radius: 0 4px 4px 0;
+    height: 60%;
+    font-size: 14px;
     font-weight: 500;
-    color: rgb(232, 224, 224);
-    background: linear-gradient(to top left, rgb(2, 2, 68),rgb(79, 113, 239));
-    padding: 2px 10px;
-    transition: all 0.3s ease;
+    background: linear-gradient(to top left, rgba(25, 3, 136, 0.931),rgba(255, 255, 255, 0.126),rgba(60, 102, 255, 0.901));
+    color: white;
+    padding: 2px 16px;
+    backdrop-filter: blur(6px);
+    transition: all 0.35s ease;
 }
+
 #searchBtn:active{
-    transform: scale(0.9);
+    transform: scale(0.96);
 }
+/* CODES FOR SUB-CONTAINER START HERE  */
 .sub-container{
+    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    padding-top: 20px;
-    border: 1px solid red;
-}
-.content-box{ 
-    height: 90%;
-    width: 74%;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-    /* border: 1px solid; */
-    z-index: 12;
-}
-.info-box{
-    height: 45%;
-    width: 100%;
-    display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(6px);
-    /* border: 1px solid blue; */
+    padding-top: 20px;
+}
+.info-box{
+    height: 35%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid red; */
 }
 .temp-info{
-    /* border: 1px solid; */
-    height: 100%;
-    width: 20%;
+    position: relative;
+    height: 90%;
+    width: 40%;
     display: flex;
     flex-direction: column;
-    padding: 12px 34px;
-    background-color: rgba(4, 4, 104, 0.069);
+    align-items: center;
+    justify-content: space-around;
+    background:  var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    padding: 12px 2px;
+}
+.degree{
+    position: absolute;
+    top: 28%;
+    right: 35%;
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.685);
+}
+.area-box{
+    height: 20%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.384);
+}
+.area-box i{
+    color: white;
+    font-weight: 600;
 }
 #tempText{
     font-size: 38px;
-    color: white;
     margin-bottom: 0px;
-    /* font-weight: 500; */
+    text-shadow: 3.2px 0px 2px rgba(0, 0, 0, 0.33);
 }
 #cloudInfo{
-    color: white;
     font-size: 14px;
     font-weight: 400;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.165);
     margin-top: -10px;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.517);
 }
 #dateInfo{
-    color: white;
     font-size: 14px;
     font-weight: 400;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.565);
 }
 .condition-box{
     /* border: 1px solid; */
     height: 80%;
-    width: 20%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     margin-right: 40px;
-    background-color: rgba(0, 0, 0, 0.193);
+     background:  var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.384);
 }
 .condition-box div{
     height: 25%;
@@ -218,66 +249,73 @@ body::before{
 }
 .condition-box div p{
     font-size: 12px;
-    color: whitesmoke;
-}
-.weather-info{
-    height: 55%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* background: rgb(255, 255, 255); */
 }
 .upper-section{
-    height: 65%;
+    height: 35%;
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     /* border: 1px solid red; */
 }
 .forecast{
-    height: 80%;
-    width: 100%;
+    height: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    border: 1px solid yellow;
+    padding: 0px 12px;
 }
 .card{
-    border: 1px solid red;
-    height: 90%;
-    width: 20%;
+    height: 80%;
+    width: 24%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: rgb(5, 13, 65);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+.card:hover{
+    transform: translateY(6px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+    border-radius: 40px;
 }
 .icon-box{
-    height: 50%;
+    height: 40%;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border: 1px solid;
+    justify-content: space-evenly;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 6px;
 }
 .icon-box h3{
-    font-size: 12px;
+    font-size: 14px;
 }
 .icon-box img{
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
 }
 .temp-dets{
-    height: 50%;
+    height: 60%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 14px
 }
 .lower-section{
     /* border: 1px solid white; */
-    height: 35%;
-    width: 100%;
+    height: 20%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -290,10 +328,31 @@ body::before{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.384);
     /* border: 1px solid red; */
 }
 .details-box{
     height: 80%;
     width: 20%;
-    border: 1px solid;
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(2px);
+    border-radius: 12px;
+    padding: 8px 4px;
+}
+.cond-logo{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    /* align-items:center; */
+    justify-content:center;
+}
+.cond-logo i{
+    font-size: 20px;
+}
+.sub-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

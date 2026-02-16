@@ -41,11 +41,14 @@
 
     <!-- ! CODES for subcontainer  -->
     <div class="sub-container">
-      <div class="content-box">
         <!-- TODO Information box container is here  -->
         <div class="info-box">
           <div class="temp-info">
-            <p id="cityName"></p>
+            <p class="degree">°C</p>
+            <div class="area-box">
+              <i class="bxf bx-location"></i>
+              <p id="cityName"></p>
+            </div>
             <p id="tempText"></p>
             <p id="cloudInfo"></p>
             <p id="dateInfo"></p>
@@ -73,9 +76,8 @@
           </div>
         </div>
         <!-- TODO: Weather info codes are here -->
-        <div class="weather-info">
           <!-- ? CODES FOR UPPPER SECTION OF WEATHER INFO  -->
-          <div class="upper-section">
+            <div class="upper-section">
                    <div class="forecast">
                 <div class="card">
                   <div class="icon-box">
@@ -127,7 +129,9 @@
             <div class="details-container">
               <!-- ! DETAISL BOX NO.1  -->
               <div class="details-box">
-                <div class="cond-logo"></div>
+                <div class="cond-logo">
+                  <i class="bx bx-water-drop-alt"></i>
+                </div>
                 <div class="sub-text">
                   <p>Humidity</p>
                   <p id="showNum">22</p>
@@ -135,7 +139,9 @@
               </div>
               <!-- ! DETAISL BOX NO.2  -->
               <div class="details-box">
-                <div class="cond-logo"></div>
+                <div class="cond-logo">
+                  <i class="bx bx-wind"></i>
+                </div>
                 <div class="sub-text">
                   <p>Wind Speed</p>
                   <p id="showWindNum">22</p>
@@ -143,7 +149,9 @@
               </div>
               <!-- ! DETAISL BOX NO.3  -->
               <div class="details-box">
-                <div class="cond-logo"></div>
+                <div class="cond-logo">
+                  <i class="bxf bx-sun" style="color: rgb(255, 157, 0);"></i>
+                </div>
                 <div class="sub-text">
                   <p>Sunrise</p>
                   <p id="sunriseTime">22</p>
@@ -151,7 +159,9 @@
               </div>
               <!-- ! DETAISL BOX NO.4  -->
               <div class="details-box">
-                <div class="cond-logo"></div>
+                <div class="cond-logo">
+                  <i class="bxf bx-sun-set" style="color: rgb(255, 132, 0);"></i>
+                </div>
                 <div class="sub-text">
                   <p>Sunset</p>
                   <p id="sunsetTime">22</p>
@@ -159,8 +169,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
     </div>
 
     <script src="config.js"></script>
