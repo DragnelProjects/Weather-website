@@ -186,7 +186,7 @@ async function loadForecast(city = "Delhi") {
     // get only one forecast per day (12:00 PM)
     const daily = data.list.filter(item =>
       item.dt_txt.includes("12:00:00")
-    ).slice(0, 4);
+    ).slice(0, 5);
 
     const cards = document.querySelectorAll(".card");
 
