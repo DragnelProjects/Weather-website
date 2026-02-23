@@ -176,7 +176,7 @@ toDisplayTheData("Delhi");
 async function loadForecast(city = "Delhi") {
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`,
     );
 
     if (!res.ok) throw new Error("City not found");
@@ -184,9 +184,9 @@ async function loadForecast(city = "Delhi") {
     const data = await res.json();
 
     // get only one forecast per day (12:00 PM)
-    const daily = data.list.filter(item =>
-      item.dt_txt.includes("12:00:00")
-    ).slice(0, 5);
+    const daily = data.list
+      .filter((item) => item.dt_txt.includes("12:00:00"))
+      .slice(0, 5);
 
     const cards = document.querySelectorAll(".card");
 
@@ -195,16 +195,16 @@ async function loadForecast(city = "Delhi") {
 
       const date = new Date(day.dt_txt);
       const dayName = date.toLocaleDateString("en-US", {
-        weekday: "long"
+        weekday: "long",
       });
 
       card.querySelector(".day").textContent = dayName;
-      card.querySelector(".temp").textContent = `${Math.round(day.main.temp - 273.15)}°C`;
+      card.querySelector(".temp").textContent =
+        `${Math.round(day.main.temp - 273.15)}°C`;
       card.querySelector(".desc").textContent = day.weather[0].description;
       card.querySelector(".icon").src =
-       `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+        `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     });
-
   } catch (err) {
     console.error(err);
   }

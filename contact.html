@@ -19,6 +19,16 @@
     />
   </head>
   <body>
+    <div id="loaderBox">
+      <div class="loader"></div>
+    </div>
+    <div class="result-box" id="result">
+      <i class="bxf bx-badge-check"></i>
+      <p>Message sended 👍</p>
+      <div>
+        <button id="returnBtn">Return</button>
+      </div>
+    </div>
     <!-- ! CODES navbar is here  -->
     <nav class="navbar-conatiner">
       <div class="title-box">
@@ -41,24 +51,36 @@
     </div>
     <!-- ! CODES FOR CONTACT SECTION  -->
     <div class="main-container">
-      <div class="main-box">
+      <div class="main-box" id="mainSec">
         <h4>Contact Us</h4>
         <p class="text">
           We're here for you. Whether you have a question, feedback, or a
-          partnership ideas, feel free to reach out. Our team is ready to assist you. Contact us we'll respond as quickly as possible.
+          partnership ideas, feel free to reach out. Our team is ready to assist
+          you. Contact us we'll respond as quickly as possible.
         </p>
         <div class="sub-container">
           <div class="form-box">
-            <div class="result-box" id="result">
-                <i class="bxf bx-badge-check"></i>
-                <p>Successfull 👍</p>
-            </div>
             <form action="#" id="userFeed">
-              <input type="text" id="userName" placeholder="Your Name" required />
-              <input type="email" id="userEmail" placeholder="Your Email" required />
+              <input
+                type="text"
+                id="userName"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                id="userEmail"
+                placeholder="Your Email"
+                required
+              />
               <input type="text" id="userSubj" placeholder="Subject" required />
-              <textarea name="Your message" id="message" placeholder="Your Message" required></textarea>
-              <input type="submit" id="submitBtn" value="Send Message"  />
+              <textarea
+                name="Your message"
+                id="message"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <input type="submit" id="submitBtn" value="Send Message" />
             </form>
           </div>
           <div class="contact-detail">
