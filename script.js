@@ -1,213 +1,148 @@
-const tempText = document.getElementById("tempText");
-const cloudInfo = document.getElementById("cloudInfo");
-const dateInfo = document.getElementById("dateInfo");
+const UI = {
+  input: document.getElementById("cityInput"),
+  searchBtn: document.getElementById("searchBtn"),
+  city: document.getElementById("cityName"),
+  temp: document.getElementById("tempText"),
+  clouds: document.getElementById("cloudInfo"),
+  date: document.getElementById("dateInfo"),
+  upperTemp: document.getElementById("upperTemp"),
+  upperHumid: document.getElementById("upperHumid"),
+  upperWind: document.getElementById("upperWind"),
+  feels: document.getElementById("showFeels"),
+  humiditityNum: document.getElementById("showNum"),
+  windNum: document.getElementById("showWindNum"),
+  sunrise: document.getElementById("sunriseTime"),
+  sunset: document.getElementById("sunsetTime"),
+  cards: document.querySelectorAll(".card"),
+};
 
-function toGetDate() {
-  const date = new Date();
-  const forDate = date.getDate();
-  const forDay = date.getDay();
-  const forMonth = date.getMonth();
+const formatDate = () => {
+  const d = new Date();
+  const day = d.toLocaleDateString("en-US", { weekday: "long" });
+  const month = d.toLocaleDateString("en-US", { month: "long" });
+  return `${day} ${d.getDate()} ${month}`;
+};
 
-  let day;
-  switch (forDay) {
-    case 0:
-      day = "Sunday";
-      break;
-    case 1:
-      day = "Monday";
-      break;
-    case 2:
-      day = "Tuesday";
-      break;
-    case 3:
-      day = "Wednesday";
-      break;
-    case 4:
-      day = "Thursday";
-      break;
-    case 5:
-      day = "Friday";
-      break;
-    case 6:
-      day = "Saturday";
-      break;
-  }
-
-  let month;
-  switch (forMonth) {
-    case 0:
-      month = "January";
-      break;
-    case 1:
-      month = "Febuary";
-      break;
-    case 2:
-      month = "March";
-      break;
-    case 3:
-      month = "April";
-      break;
-    case 4:
-      month = "May";
-      break;
-    case 5:
-      month = "June";
-      break;
-    case 6:
-      month = "July";
-      break;
-    case 7:
-      month = "August";
-      break;
-    case 8:
-      month = "September";
-      break;
-    case 9:
-      month = "October";
-      break;
-    case 10:
-      month = "November";
-      break;
-    case 11:
-      month = "December";
-      break;
-  }
-
-  dateInfo.innerText = `${day}, ${forDate} ${month} `;
-}
-toGetDate();
-
-const cityInput = document.getElementById("cityInput");
-
-const searchBtn = document.getElementById("searchBtn");
-
-searchBtn.addEventListener("click", () => {
-  let city = cityInput.value || "Delhi";
-  toDisplayTheData(city);
-  loadForecast(city);
-});
-
-async function toGetData(city) {
-  try {
-    const data = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`,
-    );
-
-    if (!data.ok) {
-      throw new Error("Can't find the file");
-    }
-
-    const weatherData = await data.json();
-    return weatherData;
-  } catch (error) {
-    console.log(error);
-  }
-}
-// toGetData();
-
-async function toGetOtherData(city) {
-  const weatherData = await toGetData(city);
-  const kelvin = weatherData.main.temp;
-  const temp = Math.floor(kelvin - 273.15);
-
-  const kelvin2 = weatherData.main.feels_like;
-  const feels = Math.floor(kelvin2 - 273.15);
-
-  const weather = {
-    city2: weatherData.name,
-    humidity: weatherData.main.humidity,
-    tempreture: temp,
-    feelsLike: feels,
-    windSpeed: weatherData.wind.speed,
-    cloudsDip: weatherData.weather[0].description,
-    sunrise: weatherData.sys.sunrise,
-    sunset: weatherData.sys.sunset,
-  };
-
-  return weather;
-  // console.log(weather.city);
-}
-
-const upperTemp = document.getElementById("upperTemp");
-const upperHumid = document.getElementById("upperHumid");
-const upperWind = document.getElementById("upperWind");
-const showFeels = document.getElementById("showFeels");
-const showNum = document.getElementById("showNum");
-const showWindNum = document.getElementById("showWindNum");
-const sunriseTime = document.getElementById("sunriseTime");
-const sunsetTime = document.getElementById("sunsetTime");
-const cityName = document.getElementById("cityName");
-
-async function toDisplayTheData(city) {
-  const weather = await toGetOtherData(city);
-
-  cityName.innerText = `${weather.city2}`;
-  tempText.innerText = `${weather.tempreture}`;
-
-  const clouds =
-    String(weather.cloudsDip).trim().charAt(0).toUpperCase() +
-    String(weather.cloudsDip).trim().slice(1).toLowerCase();
-  cloudInfo.innerText = `${clouds}`;
-
-  upperTemp.innerText = `${weather.tempreture}`;
-  upperHumid.innerText = `${weather.humidity}`;
-  upperWind.innerText = `${weather.windSpeed} km/h`;
-  showFeels.innerText = `${weather.feelsLike}`;
-
-  showNum.innerText = `${weather.humidity}`;
-  showWindNum.innerText = `${weather.windSpeed} km/h`;
-
-  const sun1 = new Date(weather.sunrise * 1000);
-  const sun2 = new Date(weather.sunset * 1000);
-
-  const options = {
+const formatTime = (unix) =>
+  new Date(unix * 1000).toLocaleDateString([], {
     hour: "2-digit",
     minute: "2-digit",
-    hour12: true,
-  };
-  const sunriseT = sun1.toLocaleTimeString([], options);
-  const sunsetT = sun2.toLocaleTimeString([], options);
+  });
 
-  sunriseTime.innerText = `${sunriseT}`;
-  sunsetTime.innerText = `${sunsetT}`;
+const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
+
+// TODO: API CALLS
+async function fetchWeather(city) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,
+  );
+
+  if (!res.ok) throw new Error("City not found");
+
+  return res.json();
 }
-toDisplayTheData("Delhi");
 
-async function loadForecast(city = "Delhi") {
-  try {
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`,
+async function fetchForecast(city) {
+  const res = await fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`,
+  );
+
+  if (!res.ok) {
+    const errorData = await res.json();
+    console.log("Forecast API Error", errorData);
+    throw new Error("Forecast fecth failed");
+  }
+
+  return res.json();
+}
+
+// TODO: DATA PROCESSORS
+
+function parseWeather(data) {
+  return {
+    city: data.name,
+    temp: Math.round(data.main.temp),
+    humidity: data.main.humidity,
+    feels: Math.round(data.main.feels_like),
+    wind: data.wind.speed,
+    desc: data.weather[0].description,
+    sunrise: data.sys.sunrise,
+    sunset: data.sys.sunset,
+  };
+}
+
+function parseForcast(data) {
+  if (!data || !data.list) return [];
+
+  const daily = [];
+
+  for (let i = 0; i < data.list.length; i += 8) {
+    daily.push(data.list[i]);
+  }
+
+  return daily.slice(0, 5);
+}
+
+// ? UI RENDERS
+
+function renderWeather(w) {
+  UI.city.textContent = w.city;
+  UI.temp.textContent = w.temp;
+  UI.clouds.textContent = capitalize(w.desc);
+  UI.upperTemp.textContent = w.temp;
+  UI.upperHumid.textContent = w.humidity;
+  UI.upperWind.textContent = w.wind + "km/h";
+  UI.feels.textContent = w.feels;
+  UI.humiditityNum.textContent = w.humidity;
+  UI.windNum.textContent = w.wind + "km/h";
+  UI.sunrise.textContent = formatTime(w.sunrise);
+  UI.sunset.textContent = formatTime(w.sunset);
+  UI.city.textContent = w.city;
+}
+
+function renderForcast(days) {
+  days.forEach((day, i) => {
+    if (!UI.cards[i]) return;
+
+    const date = new Date(day.dt_txt);
+    const dayName = date.toLocaleDateString("en-Us", { weekday: "long" });
+    UI.cards[i].querySelector(".day").textContent = dayName;
+    UI.cards[i].querySelector(".temp").textContent =
+      Math.round(day.main.temp) + "C";
+    UI.cards[i].querySelector(".desc").textContent = capitalize(
+      day.weather[0].description,
     );
+    UI.cards[i].querySelector(".icon").src =
+      `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+  });
+}
 
-    if (!res.ok) throw new Error("City not found");
+// ? MAIN CONTROLLER
+async function loadCity(city = "Delhi") {
+  try {
+    const weatherData = await fetchWeather(city);
+    const forecastData = await fetchForecast(city);
 
-    const data = await res.json();
+    renderWeather(parseWeather(weatherData));
 
-    // get only one forecast per day (12:00 PM)
-    const daily = data.list
-      .filter((item) => item.dt_txt.includes("12:00:00"))
-      .slice(0, 5);
-
-    const cards = document.querySelectorAll(".card");
-
-    daily.forEach((day, i) => {
-      const card = cards[i];
-
-      const date = new Date(day.dt_txt);
-      const dayName = date.toLocaleDateString("en-US", {
-        weekday: "long",
-      });
-
-      card.querySelector(".day").textContent = dayName;
-      card.querySelector(".temp").textContent =
-        `${Math.round(day.main.temp - 273.15)}°C`;
-      card.querySelector(".desc").textContent = day.weather[0].description;
-      card.querySelector(".icon").src =
-        `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
-    });
+    renderForcast(parseForcast(forecastData));
   } catch (err) {
-    console.error(err);
+    alert(err.message);
   }
 }
 
-loadForecast();
+// ! EVENTS
+
+UI.searchBtn.addEventListener("click", () => {
+  const city = UI.input.value.trim() || "Delhi";
+  loadCity(city);
+});
+
+UI.input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") UI.searchBtn.click();
+});
+
+// ! INIT
+
+UI.date.textContent = formatDate();
+loadCity();
